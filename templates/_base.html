@@ -1,0 +1,37 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14Bis Capital</title>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+    <style>
+        body {
+            background-image: url("{% static 'media/background.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    {% include 'navbar.html' %}
+    <br>
+    <div class="container mx-auto mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <br>
+    {% include 'footer.html' %}
+</body>
+
+</html>

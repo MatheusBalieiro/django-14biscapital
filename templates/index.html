@@ -1,0 +1,84 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block content %}
+
+<main>
+    <div class="tradingview-widget-container">
+        <div id="tradingview_deae1"></div>
+        <div class="tradingview-widget-copyright">
+            <a href="https://br.tradingview.com/" rel="noopener nofollow" target="_blank">
+                <span class="blue-text">Acompanhe todos os mercados no TradingView</span>
+            </a>
+        </div>
+        <script type src="https://s3.tradingview.com/tv.js"></script>
+        <script type>
+            new TradingView.widget(
+                {
+                    "width": 980,
+                    "height": 610,
+                    "symbol": "INDEX:IBOV",
+                    "interval": "D",
+                    "timezone": "America/Sao_Paulo",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "br",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": true,
+                    "withdateranges": true,
+                    "hide_side_toolbar": false,
+                    "allow_symbol_change": true,
+                    "details": true,
+                    "hotlist": true,
+                    "calendar": true,
+                    "container_id": "tradingview_deae1"
+                }
+            );
+        </script>
+        <br><br><br>
+    </div>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-8 dark:text-white text-center">Quem Somos</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex flex-col items-center">
+                <img src="{% static 'media/logotipo/grafico.png' %}" alt="Imagem gráfico" class="w-20 h-20">
+                <h2 class="text-xl font-bold mt-4 text-white">Missão</h2>
+                <p class="text-gray-400 text-center">
+                    A 14Bis Capital vai explorar o mercado ainda em desenvolvimento da Bolsa de Valores brasileira. A
+                    maior parcela da população ainda nem sabe onde ou como investir. Nós iremos usar nosso conhecimento
+                    e experiência para melhor alocar recursos e ensinar o “como” e o “onde”.
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="{% static 'media/logotipo/lampada.png' %}" alt="Imagem lâmpada" class="w-20 h-20">
+                <h2 class="text-xl font-bold mt-4 text-white">Visão</h2>
+                <p class="text-gray-400 text-center">
+                    Almejamos consolidar uma reputação de destaque no segmento dos investimentos por meio da constante
+                    dedicação, profissionalismo e excelência em nossos serviços. Nossa intenção é prover um valor
+                    significativo e duradouro para os clientes que escolhem confiar em nossa expertise e habilidades.
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="{% static 'media/logotipo/valor.png' %}" alt="Imagem valor" class="w-20 h-20">
+                <h2 class="text-xl font-bold mt-4 text-white">Valores</h2>
+                <p class="text-gray-400 text-center">
+                    Acesso à Renda Variável, compartilhamento de conhecimento, crescimento de renda. Essas são algumas
+                    de nossas crenças, os principais serviços que vamos fornecer aos nossos clientes. O mundo dos
+                    investimentos se torna muito menos assustador quando se tem ajuda.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+    <div class="flex justify-center">
+        <div class="widget-youtube ">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uniurFmXplU"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}
