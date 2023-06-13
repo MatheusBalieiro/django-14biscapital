@@ -17,8 +17,10 @@
             <div class="z-50 hidden my-4 text-base list-none divide-y rounded-lg shadow bg-gray-700 divide-gray-600"
                 id="user-dropdown">
                 <div class="px-4 py-3">
-                    <span class="block text-sm text-white">Bonnie Green</span>
-                    <span class="block text-sm truncate text-gray-400">name@flowbite.com</span>
+                    {% if user.is_authenticated %}
+                    <span class="block text-sm text-white">Olá, {{ user.get_full_name }}</span>
+                    <span class="block text-sm truncate text-gray-400">{{ user.email }}</span>
+                    {% endif %}
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
@@ -28,6 +30,11 @@
                     <li>
                         <a href="/settings"
                             class="block px-4 py-2 text-sm text-gray-200 hover:text-white {% if request.path == '/settings' %}bg-blue-700 text-white{% endif %}">Settings</a>
+                    </li>
+                    <li>
+                        <a href="/sign-in"
+                            class="block px-4 py-2 text-sm text-gray-200 hover:text-white {% if request.path == '/sign-out' %}bg-blue-700 text-white{% endif %}">Sign
+                            in</a>
                     </li>
                     <li>
                         <a href="/sign-out"
@@ -67,6 +74,14 @@
                 <li>
                     <a href="{% url 'contact' %}"
                         class="block py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:p-0 md:hover:text-blue-500 hover:bg-gray-700 hover:text-white border-gray-700 {% if request.path == '/contact' %}md:bg-blue-700 text-white{% endif %}">Contato</a>
+                </li>
+                <li>
+                    <a href="{% url 'login' %}"
+                        class="block py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:p-0 md:hover:text-blue-500 hover:bg-gray-700 hover:text-white border-gray-700 {% if request.path == '/contact' %}md:bg-blue-700 text-white{% endif %}">Login</a>
+                </li>
+                <li>
+                    <a href="{% url 'register' %}"
+                        class="block py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:p-0 md:hover:text-blue-500 hover:bg-gray-700 hover:text-white border-gray-700 {% if request.path == '/contact' %}md:bg-blue-700 text-white{% endif %}">Register</a>
                 </li>
             </ul>
         </div>

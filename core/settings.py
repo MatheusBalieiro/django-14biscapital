@@ -31,11 +31,24 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "django_browser_reload",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.facebook",
+    "allauth.socialaccount.providers.microsoft",
+    "allauth.socialaccount.providers.google",
     "compressor",
     "tailwind",
     "theme",
-    "django_browser_reload",
+    "crispy_forms",
+    "crispy_tailwind",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "uni_form"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 TAILWIND_APP_NAME = "theme"
 
@@ -72,6 +85,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    # For each OAuth based provider, either add a ``SocialApp``
+    # (``socialaccount`` app) containing the required client
+    # credentials, or list them here:
+    "google": {"APP": {"client_id": "123", "secret": "456", "key": ""}},
+    "facebook": {"APP": {"client_id": "123", "secret": "456", "key": ""}},
+    "microsoft": {"APP": {"client_id": "123", "secret": "456", "key": ""}},
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
